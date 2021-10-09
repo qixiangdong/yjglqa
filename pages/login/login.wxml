@@ -1,0 +1,9 @@
+
+  <view class="bg-gradual-green radius text-center shadow-blur" style="padding-top: 150rpx;">
+    <view class=" padding"><text class="text-xl text-bold">红河应急管理有奖问答</text></view>
+    <!-- <view class="padding-bottom"><text class="text-xxl text-bold">出行报备申请</text></view> -->
+  </view>
+
+<view class="padding">
+  <button class=" bg-green lg" bindtap="login">授权</button>
+</view>

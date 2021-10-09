@@ -1,0 +1,22 @@
+<cu-custom bgColor="bg-gradual-green"><view slot="content">答题结果</view></cu-custom>
+<view class="page">
+  <!--标题-->
+  <view class='page-head'>
+    <view class="page-title">
+      答题结束！您的得分为:
+    </view>
+    <!--分数-->
+    <view class='page-score'>
+      <text class="score-num">{{totalScore}}</text>
+      <text class="score-text">分</text>
+    </view>
+    <text class="score-remark">{{totalScore==100?remark[0]:(totalScore>=80?remark[1]:remark[2])}}</text>  <!-- 评价 -->
+    <view>用时：{{duration}}秒</view>
+  </view>
+  <!--查询错误-->
+  <view class='page-footer'>
+    <view class="wrong-btns">
+      <button type="default" bindtap="toIndex" hover-class="other-button-hover" class="wrong-btn"> 返回首页 </button>
+    </view>
+  </view>
+</view>

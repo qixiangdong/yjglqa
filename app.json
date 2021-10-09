@@ -1,0 +1,45 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/my/my",
+    "pages/myprofile/myprofile",
+    "pages/rank/rank",
+    "pages/login/login",
+    "pages/history/history",
+    "pages/qa/qa",
+    "pages/results/results"
+  ],
+  "window":{
+    "navigationBarBackgroundColor": "#39b54a",
+    "navigationBarTitleText": "应急管理有奖问答",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
+  },  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },  "tabBar": {
+    "borderStyle": "white",
+    "selectedColor": "#09bb07",
+    "list": [
+      {
+        "iconPath": "images/tabbar/basics.png",
+        "selectedIconPath": "images/tabbar/basics_cur.png",
+        "pagePath": "pages/index/index",
+        "text": "主页"
+      },
+      {
+        "iconPath": "images/tabbar/component.png",
+        "selectedIconPath": "images/tabbar/component_cur.png",
+        "pagePath": "pages/rank/rank",
+        "text": "排名"
+      },
+      {
+        "iconPath": "images/tabbar/about.png",
+        "selectedIconPath": "images/tabbar/about_cur.png",
+        "pagePath": "pages/my/my",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

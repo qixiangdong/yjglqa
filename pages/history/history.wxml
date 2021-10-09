@@ -1,0 +1,23 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">答题记录</view></cu-custom>
+
+<view class="page">
+  <view class="table" wx:if="{{logs.length>0}}" wx:key="index">
+    <view class="tr bg-w">
+      <view class="th first">日期</view>
+      
+      <view class="th ">得分</view>
+      <view class="th">时长</view>
+    </view>
+    <block wx:for="{{logs}}" wx:for-item="item">
+      <view class="tr">
+        <view class="td first">{{item.date}}</view>
+        <view class="td">{{item.score}}</view>
+
+        <view class="td">{{item.duration}}</view>
+      </view>
+    </block>
+  </view>
+  <view class="no-record" wx:else>
+    <text class="no-text">没有数据哦~</text>
+  </view>
+</view>

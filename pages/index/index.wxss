@@ -1,0 +1,14 @@
+.userinfo {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  color: #aaa;
+}
+
+.userinfo-avatar {
+  overflow: hidden;
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}

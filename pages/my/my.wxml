@@ -1,0 +1,27 @@
+<cu-custom bgColor="bg-gradual-green"><view slot="content">我的</view></cu-custom>
+
+<view class="userinfo padding-lg" >
+  <block wx:if="{{!hasUserInfo}}">
+      <button class="cu-btn bg-green round shadow" bindtap="login">授权</button>
+
+    </block>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item arrow">
+        <view class="content" bindtap="openpage" data-url="/pages/myprofile/myprofile">
+        <text class="cuIcon-profile text-grey"></text>
+        <text class="text-grey">个人资料</text>
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <view class="content" bindtap="openpage" data-url="/pages/history/history">
+        <text class="cuIcon-formfill text-grey"></text>
+        <text class="text-grey">答题记录</text>
+      </view>
+    </view>
+  </view>
