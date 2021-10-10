@@ -2,15 +2,15 @@
 <view wx:if="{{!showDetail}}">
   <form bindsubmit="submit">
     <view class="margin-top">
-      <text class="cuIcon-title text-red"></text> 请谨慎填写个人信息，电话号码将用于奖品兑换。
+      <text class="cuIcon-title text-red"></text> 请谨慎填写个人信息，信息仅将用于奖品兑换。
   </view>
   <view class="cu-form-group margin-top">
     <view class="title">姓名</view>
-    <input placeholder="请填写本人姓名" name="name"></input>
+    <input placeholder="请填写姓名" name="name"></input>
   </view>
   <view class="cu-form-group">
     <view class="title">手机号码</view>
-    <input placeholder="请输入本人手机号码" name="phone" type="number" maxlength="11" ></input>
+    <input placeholder="请输入红河州移动手机号码" name="phone" type="number" maxlength="11" ></input>
     <view class="cu-capsule radius">
       <view class="cu-tag bg-blue">
         +86
@@ -34,11 +34,11 @@
     <view class="padding bg-white ">
       <view class="flex-sub">
         <view class="text-lg flex justify-between">
-          <view>姓名：{{userProfile.name}}</view>
+          <view>姓名：{{user.name}}</view>
         </view>
         <view class="flex justify-between">
           <view class="text-lg">
-            电话：{{userProfile.phone}}
+            电话：{{user.phone}}
           </view>
         </view>
       </view>

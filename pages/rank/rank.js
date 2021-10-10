@@ -15,7 +15,14 @@ Page({
   onLoad: function (options) {
 
     var that = this;
-    db.collection('history').get({
+    let today = new Date().toLocaleDateString();
+    this.setData({
+      today
+    })
+    const _ = db.command
+    db.collection('history').where({
+      date: _.eq(today)
+    }).orderBy('score', 'desc').orderBy('duration', 'asc').limit(20).get({
       success: function(res) {
         // 输出 [{ "title": "The Catcher in the Rye", ... }]
         console.log(res.data);

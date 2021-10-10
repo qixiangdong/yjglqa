@@ -3,23 +3,20 @@ const db = wx.cloud.database()
 var starttime;
 Page({
   data: {
-    index: 0,  // 题目序列
     chooseValue: [], // 选择的答案序列
     totalScore: 100, // 总分
-    wrong: 0, // 错误的题目数量
-    wrongList: [], // 错误的题目集合-乱序
-    wrongListSort: [], // 错误的题目集合-正序
+    indexQ:0
   },
   getRandomArrayElements(arr, count) {
     var shuffled = arr.slice(0), i = arr.length, min = i - count, temp, index;
     while (i-- > min) {
-        index = Math.floor((i + 1) * Math.random());
-        temp = shuffled[index];
-        shuffled[index] = shuffled[i];
-        shuffled[i] = temp;
+      index = Math.floor((i + 1) * Math.random());
+      temp = shuffled[index];
+      shuffled[index] = shuffled[i];
+      shuffled[i] = temp;
     }
     return shuffled.slice(min);
-},
+  },
   onLoad: function (options) {
     let question1 = app.globalData.questionList['question1'];
     let question2 = app.globalData.questionList['question2'];
@@ -29,47 +26,21 @@ Page({
     this.setData({
       questionList
     })
-    //console.log(this.data.questionList);
-    
-    let count = this.generateArray(0, this.data.questionList.length-1); // 生成题序
-    this.setData({
-      //shuffleIndex: this.shuffle(count).slice(0, 10) // 生成随机题序 [2,0,3] 并截取10道题
-      shuffleIndex: count
-    })
 
     starttime = new Date();
   },
   /*
-  * 数组乱序/洗牌
-  */
-  shuffle: function (arr) {
-    let i = arr.length;
-    while (i) {
-      let j = Math.floor(Math.random() * i--);
-      [arr[j], arr[i]] = [arr[i], arr[j]];
-    }
-    return arr;
-  },
-  /*
   * 单选事件
   */
-  radioChange: function(e){
+  radioChange: function (e) {
+    console.log(e);
+    let index = e.currentTarget.dataset.index;
     console.log('checkbox发生change事件，携带value值为：', e.detail.value)
-    this.data.chooseValue[this.data.index] = e.detail.value;
+    this.data.chooseValue[index] = e.detail.value;
     console.log(this.data.chooseValue);
+
   },
-  /*
-  * 多选事件
-  */
-  checkboxChange:function(e){
-    console.log('checkbox发生change事件，携带value值为：', e.detail.value)
-    this.data.chooseValue[this.data.index] = e.detail.value.sort();
-    console.log(this.data.chooseValue);
-  },
-  /*
-  * 退出答题 按钮
-  */
-  outTest: function(){
+  outTest: function () {
     wx.showModal({
       title: '提示',
       content: '你真的要退出答题吗？',
@@ -85,87 +56,65 @@ Page({
       }
     })
   },
-  /*
-  * 下一题/提交 按钮
-  */
-  nextSubmit: function(){
-    // 如果没有选择
-    if (this.data.chooseValue[this.data.index] == undefined || this.data.chooseValue[this.data.index].length == 0) {  
+  submit() {
+    console.log(this.data.chooseValue);
+    if (this.data.chooseValue.length != 10 || this.data.chooseValue.includes(undefined)) {
       wx.showToast({
-        title: '请选择至少一个答案!',
+        title: '你还有问题没有回答!',
         icon: 'none',
-        duration: 2000,
-        success: function(){
+        duration: 3000,
+        success: function () {
           return;
         }
       })
-      return;
-    }
-
-    // 判断答案是否正确
-    this.chooseError();
-
-    // 判断是不是最后一题
-    if (this.data.index < this.data.shuffleIndex.length - 1) {
-      // 渲染下一题
-      this.setData({
-        index: this.data.index + 1
-      })
     } else {
+          //计算总分
+    for (let index = 0; index < this.data.chooseValue.length; index++) {
+      var trueValue = this.data.questionList[index]['true'];
+      var chooseVal = this.data.chooseValue[index];
+      console.log('第' + index + '题选择了' + chooseVal + '答案是' + trueValue);
+      if (chooseVal.toString() != trueValue.toString()) {
+        console.log('错了');
+        this.setData({
+          totalScore: this.data.totalScore - this.data.questionList[index]['scores']  // 扣分操作
+        })
+      }
+    }
       let endtime = new Date();
-      let duration = ((endtime - starttime)/1000).toFixed(1);
+      let duration = ((endtime - starttime) / 1000).toFixed(1);
       console.log(duration);
-      //let wrongList = JSON.stringify(this.data.wrongList);
-      //let wrongListSort = JSON.stringify(this.data.wrongListSort);
-      //let chooseValue = JSON.stringify(this.data.chooseValue);
       wx.navigateTo({
-        url: '../results/results?totalScore=' + this.data.totalScore+'&duration='+duration
+        url: '../results/results?totalScore=' + this.data.totalScore + '&duration=' + duration
       })
-
-      // 设置缓存
       var that = this;
+      let date = new Date().toLocaleDateString();
       db.collection('history').add({
         data: {
-          date: Date.now(), 
+          date: date,
           score: this.data.totalScore,
           avatarUrl: app.globalData.userInfo.avatarUrl,
           nickName: app.globalData.userInfo.nickName,
           duration: duration
         },
-        success: function(res) {
+        success: function (res) {
           console.log(res);
-
         }
       })
-      // var logs = wx.getStorageSync('logs') || []
-      // let logsList = { "date": Date.now(), "testId": this.data.testId, "score": this.data.totalScore }
-      // logs.unshift(logsList);
-      // wx.setStorageSync('logs', logs);
     }
   },
-  /*
-  * 错题处理
-  */
-  chooseError: function(){
-    var trueValue = this.data.questionList[this.data.shuffleIndex[this.data.index]]['true'];
-    var chooseVal = this.data.chooseValue[this.data.index];
-    console.log('选择了' + chooseVal + '答案是' + trueValue);
-    if (chooseVal.toString() != trueValue.toString()) {
-      console.log('错了');
-      //this.data.wrong++;
-      //this.data.wrongListSort.push(this.data.index);
-      //this.data.wrongList.push(this.data.shuffleIndex[this.data.index]);
-      this.setData({
-        totalScore: this.data.totalScore - this.data.questionList[this.data.shuffleIndex[this.data.index]]['scores']  // 扣分操作
-      })
+  getScore() {
+    //计算总分
+    for (let index = 0; index < this.data.chooseValue; index++) {
+      var trueValue = this.data.questionList[index]['true'];
+      var chooseVal = this.data.chooseValue[index];
+      console.log('第' + index + '题选择了' + chooseVal + '答案是' + trueValue);
+      if (chooseVal.toString() != trueValue.toString()) {
+        console.log('错了');
+        this.setData({
+          totalScore: this.data.totalScore - this.data.questionList[index]['scores']  // 扣分操作
+        })
+      }
     }
-  },
-  /**
-     * 生成一个从 start 到 end 的连续数组
-     * @param start
-     * @param end
-     */
-  generateArray: function(start, end) {
-    return Array.from(new Array(end + 1).keys()).slice(start)
+
   }
 })

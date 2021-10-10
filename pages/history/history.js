@@ -1,5 +1,6 @@
 // pages/history/history.js
 const db = wx.cloud.database()
+const app = getApp()
 Page({
 
   /**
@@ -15,7 +16,9 @@ Page({
   onLoad: function (options) {
 
     var that = this;
-    db.collection('history').get({
+    db.collection('history').where({
+      _openid: app.globalData.openid
+    }).get({
       success: function(res) {
         // 输出 [{ "title": "The Catcher in the Rye", ... }]
         console.log(res.data);

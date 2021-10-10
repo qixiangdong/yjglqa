@@ -22,20 +22,40 @@ App({
       }
     })
 
-    let userInfo = wx.getStorageSync('userInfo');
-    let userProfile = wx.getStorageSync('userProfile');
+    var that = this;
+    if(this.globalData.user==null){
+      wx.cloud.database().collection('user').where({
+      }).get()
+      .then(res => {
+        console.log(res);
+        if(res.data&&res.data.length>0){
+          let user = res.data[0]
+            that.globalData.user = user
+            that.globalData.openid = user._openid
+            that.globalData.userInfo = {
+              nickName: user.nickName,
+              avatarUrl: user.avatarUrl
+            }
+        }
 
-    if(userInfo){
-      this.globalData.userInfo = userInfo;
-    }
-
-    if(userProfile){
-      this.globalData.userProfile = userProfile;
+        console.log(that.globalData.user);
+        console.log(that.globalData.openid);
+        console.log(that.globalData.userInfo);
+      })
+      .catch(err => {
+        wx.showToast({
+          title: '网络错误',
+          icon: "error",
+          duration: 2000
+        })
+      })
+    
     }
   },
   globalData: {
     userInfo: null,
-    userProfile: null,
+    openid: null,
+    user: null,
     questionList: jsonList.questionList  // 拿到答题数据
   }
 })

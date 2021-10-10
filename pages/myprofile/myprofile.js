@@ -73,9 +73,9 @@ Page({
     }else{
       this.setData({userInfo: app.globalData.userInfo});
     }
-    if(app.globalData.userProfile){
+    if(app.globalData.user){
       this.setData({
-        userProfile: app.globalData.userProfile
+        user: app.globalData.user
       })
       this.setData({
         showDetail: true

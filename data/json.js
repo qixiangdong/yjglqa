@@ -525,7 +525,7 @@ var json ={
                 ],
                 "true": "正确",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -536,7 +536,7 @@ var json ={
                 ],
                 "true": "正确",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -547,7 +547,7 @@ var json ={
                 ],
                 "true": "正确",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -558,7 +558,7 @@ var json ={
                 ],
                 "true": "正确",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -569,7 +569,7 @@ var json ={
                 ],
                 "true": "错误",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -580,7 +580,7 @@ var json ={
                 ],
                 "true": "错误",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -591,7 +591,7 @@ var json ={
                 ],
                 "true": "错误",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -602,7 +602,7 @@ var json ={
                 ],
                 "true": "正确",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -613,7 +613,7 @@ var json ={
                 ],
                 "true": "错误",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -624,7 +624,7 @@ var json ={
                 ],
                 "true": "错误",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -635,7 +635,7 @@ var json ={
                 ],
                 "true": "正确",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -646,7 +646,7 @@ var json ={
                 ],
                 "true": "正确",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -657,7 +657,7 @@ var json ={
                 ],
                 "true": "错误",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -668,7 +668,7 @@ var json ={
                 ],
                 "true": "错误",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -679,7 +679,7 @@ var json ={
                 ],
                 "true": "正确",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -690,7 +690,7 @@ var json ={
                 ],
                 "true": "正确",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -701,7 +701,7 @@ var json ={
                 ],
                 "true": "正确",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -712,7 +712,7 @@ var json ={
                 ],
                 "true": "错误",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -723,7 +723,7 @@ var json ={
                 ],
                 "true": "正确",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -734,7 +734,7 @@ var json ={
                 ],
                 "true": "错误",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -745,7 +745,7 @@ var json ={
                 ],
                 "true": "正确",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -756,7 +756,7 @@ var json ={
                 ],
                 "true": "错误",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -767,7 +767,7 @@ var json ={
                 ],
                 "true": "错误",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -778,7 +778,7 @@ var json ={
                 ],
                 "true": "正确",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -789,7 +789,7 @@ var json ={
                 ],
                 "true": "正确",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -800,7 +800,7 @@ var json ={
                 ],
                 "true": "错误",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -811,7 +811,7 @@ var json ={
                 ],
                 "true": "错误",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -822,7 +822,7 @@ var json ={
                 ],
                 "true": "正确",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -833,7 +833,7 @@ var json ={
                 ],
                 "true": "正确",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -844,7 +844,7 @@ var json ={
                 ],
                 "true": "错误",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -855,7 +855,7 @@ var json ={
                 ],
                 "true": "正确",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -866,7 +866,7 @@ var json ={
                 ],
                 "true": "错误",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -877,7 +877,7 @@ var json ={
                 ],
                 "true": "正确",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -888,7 +888,7 @@ var json ={
                 ],
                 "true": "错误",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -899,7 +899,7 @@ var json ={
                 ],
                 "true": "错误",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -910,7 +910,7 @@ var json ={
                 ],
                 "true": "错误",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -921,7 +921,7 @@ var json ={
                 ],
                 "true": "错误",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -932,7 +932,7 @@ var json ={
                 ],
                 "true": "正确",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             },
             {
@@ -943,7 +943,7 @@ var json ={
                 ],
                 "true": "正确",
                 "type": 3,
-                "scores": 5,
+                "scores": 10,
                 "checked": false
             }
     ]

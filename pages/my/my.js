@@ -10,7 +10,8 @@ Page({
     CustomBar: app.globalData.CustomBar,
     userInfo: app.globalData.userInfo,
     hasUserInfo: false,
-    userInfo: null
+    userInfo: null,
+    user: null
   },
 
   /**
@@ -19,6 +20,10 @@ Page({
   onLoad() {
     let userInfo = app.globalData.userInfo;
     if (userInfo) {
+      // let userInfo = {
+      //   nickName: user.nickName,
+      //   avatarUrl: user.avatarUrl
+      // }
       this.setData({
         hasUserInfo: true,
         userInfo
@@ -50,7 +55,6 @@ Page({
           hasUserInfo: true
         })
         app.globalData.userInfo = res.userInfo;
-        wx.setStorageSync('userInfo', res.userInfo);
       }
     })
 

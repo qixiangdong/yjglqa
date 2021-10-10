@@ -1,15 +1,24 @@
 <cu-custom bgColor="bg-gradual-green" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">答题记录</view></cu-custom>
-
+<!-- <wxs module="m1">
+  function format(ts) {
+    var d = getDate(ts)
+    return [d.getFullYear(), d.getMonth()+1, d.getDate()].join('-')
+      + ' '
+      + [d.getHours(), d.getMinutes(), d.getSeconds()].join(':')
+  }
+  module.exports.format = format
+</wxs> -->
 <view class="page">
-  <view class="table" wx:if="{{logs.length>0}}" wx:key="index">
+  <view class="table" wx:if="{{logs.length>0}}">
     <view class="tr bg-w">
       <view class="th first">日期</view>
       
       <view class="th ">得分</view>
       <view class="th">时长</view>
     </view>
-    <block wx:for="{{logs}}" wx:for-item="item">
+    <block wx:for="{{logs}}" wx:for-item="item" wx:key="index">
       <view class="tr">
+        <!-- <view class="td first">{{m1.format(item.date)}}</view> -->
         <view class="td first">{{item.date}}</view>
         <view class="td">{{item.score}}</view>
 
