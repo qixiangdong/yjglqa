@@ -1,4 +1,4 @@
-<cu-custom bgColor="bg-gradual-green"><view slot="content">每日排名({{today}})</view></cu-custom>
+<cu-custom bgColor="bg-gradual-green"><view slot="content">今日排名({{today}})</view></cu-custom>
 <view class="page">
   <view class="table" wx:if="{{logs.length>0}}" wx:key="index">
     <view class="tr bg-w">
@@ -22,4 +22,14 @@
   <view class="no-record" wx:else>
     <text class="no-text">没有数据哦~</text>
   </view>
+  <view class="padding">
+    <view>
+      <text class="cuIcon-title text-red"></text>今日前20名优秀答题者，最终获奖排名将基于累计的每天答题结果。每天坚持答题，才能提高获奖概率。
+    </view>
+  <view>
+    <text class="cuIcon-title text-red"></text>最终获奖排名，请查看公众号：红河州应急管理
+  </view>
+
+  </view>
 </view>
+<official-account></official-account>

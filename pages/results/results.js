@@ -15,11 +15,10 @@ Page({
     
     //let wrongList = JSON.parse(options.wrongList);
     //let wrongListSort = JSON.parse(options.wrongListSort);
-    //let chooseValue = JSON.parse(options.chooseValue);
     let duration = options.duration;
     this.setData({
       totalScore: options.totalScore != ""?options.totalScore:"无",
-      duration: duration,
+      duration: duration
       //wrongList: wrongList,
       //wrongListSort: wrongListSort,
       //chooseValue: chooseValue,
@@ -39,6 +38,11 @@ Page({
   toIndex: function(){
     wx.switchTab({
       url: '../index/index'
+    })
+  },
+  toWrongList: function(){
+    wx.navigateTo({
+      url: '../wronglist/wronglist'
     })
   }
 })

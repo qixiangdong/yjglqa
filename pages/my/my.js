@@ -55,6 +55,7 @@ Page({
           hasUserInfo: true
         })
         app.globalData.userInfo = res.userInfo;
+        wx.setStorageSync('userInfo', res.userInfo);
       }
     })
 

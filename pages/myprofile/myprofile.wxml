@@ -1,24 +1,39 @@
 <cu-custom bgColor="bg-gradual-green" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">个人资料</view></cu-custom>
+<view class="userinfo padding-lg" >
+  <block wx:if="{{!hasUserInfo}}">
+      <button class="cu-btn bg-green round shadow" bindtap="login">授权头像、昵称</button>
+
+    </block>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
 <view wx:if="{{!showDetail}}">
   <form bindsubmit="submit">
     <view class="margin-top">
-      <text class="cuIcon-title text-red"></text> 请谨慎填写个人信息，信息仅将用于奖品兑换。
+      <text class="cuIcon-title text-red"></text> 请谨慎填写个人信息，提交后不能修改。
+  </view>
+  <view class="margin-botton">
+      <text class="cuIcon-title text-red"></text>兑奖手机号仅将用于兑换话费。
+  </view>
+  <view class="margin-botton">
+      <text class="cuIcon-title text-red"></text>联通、电信手机用户，请输入移动运营商号码兑奖
   </view>
   <view class="cu-form-group margin-top">
     <view class="title">姓名</view>
+    
     <input placeholder="请填写姓名" name="name"></input>
   </view>
   <view class="cu-form-group">
-    <view class="title">手机号码</view>
-    <input placeholder="请输入红河州移动手机号码" name="phone" type="number" maxlength="11" ></input>
-    <view class="cu-capsule radius">
-      <view class="cu-tag bg-blue">
-        +86
-      </view>
-      <view class="cu-tag line-blue">
-        中国大陆
-      </view>
-    </view>
+    <view class="title">联系手机号</view>
+    <!-- <input placeholder="请输入本人手机号码" name="phone" type="number" maxlength="11" ></input> -->
+    <input wx:if="{{phone}}" disabled="true" placeholder="请输入本人手机号码" value="{{phone}}"></input>
+    <button wx:if="{{!phone}}" class="cu-btn round bg-blue shadow" style="width: 200rpx;" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">授权手机号</button>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">兑奖手机号</view>
+    <input placeholder="请输入兑奖手机号码" name="awardphone" type="number" maxlength="11" ></input>
   </view>
   <view class="padding flex justify-around">
   <button class="cu-btn bg-green" style="width: 300rpx;" form-type="submit">确定</button>
@@ -34,11 +49,16 @@
     <view class="padding bg-white ">
       <view class="flex-sub">
         <view class="text-lg flex justify-between">
-          <view>姓名：{{user.name}}</view>
+          <view>姓名：{{userProfile.name}}</view>
         </view>
         <view class="flex justify-between">
           <view class="text-lg">
-            电话：{{user.phone}}
+            联系电话：{{userProfile.phone}}
+          </view>
+        </view>
+        <view class="flex justify-between">
+          <view class="text-lg">
+            兑奖电话：{{userProfile.awardphone}}
           </view>
         </view>
       </view>

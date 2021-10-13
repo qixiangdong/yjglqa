@@ -14,19 +14,58 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
     var that = this;
-    db.collection('history').where({
-      _openid: app.globalData.openid
-    }).get({
-      success: function(res) {
-        // 输出 [{ "title": "The Catcher in the Rye", ... }]
-        console.log(res.data);
-        that.setData({
-          logs: res.data
-        })
-       }
+    let openid = app.globalData.openid;
+    wx.showLoading({
+      title: '加载中',
     })
+
+    wx.cloud.callFunction({
+      name: 'getHistory',
+      data: {
+        openid: openid
+      },
+    }).then(res=>{
+            // 输出 [{ "title": "The Catcher in the Rye", ... }]
+            console.log(res.result.data);
+            that.setData({
+              logs: res.result.data
+            });
+            wx.hideLoading({
+              success: (res) => {},
+            })
+
+    })
+
+//     wx.cloud.callFunction({
+//       name: 'getHistory',
+//       data: {
+//         openid: openid
+//       }
+//     }).then(res => {
+//       // 输出 [{ "title": "The Catcher in the Rye", ... }]
+//       console.log(res.data);
+//       wx.hideLoading({
+//         success: (res) => {},
+//       })
+//       that.setData({
+//         logs: res.data
+//       })
+// });
+
+    // db.collection('history').where({
+    //   _openid: app.globalData.openid
+    // }).get().then(res => {
+    //           // 输出 [{ "title": "The Catcher in the Rye", ... }]
+    //           console.log(res.data);
+    //           wx.hideLoading({
+    //             success: (res) => {},
+    //           })
+    //           that.setData({
+    //             logs: res.data
+    //           })
+    // })
+    
 
   },
 

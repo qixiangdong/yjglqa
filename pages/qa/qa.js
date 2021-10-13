@@ -17,9 +17,13 @@ Page({
     }
     return shuffled.slice(min);
   },
-  onLoad: function (options) {
-    let question1 = app.globalData.questionList['question1'];
-    let question2 = app.globalData.questionList['question2'];
+  onLoad: function () {
+  },
+  onShow: function () {
+    app.globalData.answeredQuestionList = null;
+    app.globalData.answers = null;
+    let question1 = app.globalData.allQuestionList['question1'];
+    let question2 = app.globalData.allQuestionList['question2'];
     let question1_5 = this.getRandomArrayElements(question1, 5)
     let question2_5 = this.getRandomArrayElements(question2, 5)
     let questionList = question1_5.concat(question2_5);
@@ -80,14 +84,18 @@ Page({
         })
       }
     }
+    app.globalData.answeredQuestionList = this.data.questionList;
+    app.globalData.answers = this.data.chooseValue;
       let endtime = new Date();
       let duration = ((endtime - starttime) / 1000).toFixed(1);
       console.log(duration);
-      wx.navigateTo({
-        url: '../results/results?totalScore=' + this.data.totalScore + '&duration=' + duration
-      })
       var that = this;
-      let date = new Date().toLocaleDateString();
+      //let date = new Date().toLocaleDateString();
+      let today= new Date();
+      let date = today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate()
+      wx.showLoading({
+        title: '加载中',
+      })
       db.collection('history').add({
         data: {
           date: date,
@@ -100,6 +108,13 @@ Page({
           console.log(res);
         }
       })
+      wx.hideLoading({
+        success: (res) => {},
+      })
+      wx.navigateTo({
+        url: '../results/results?totalScore=' + this.data.totalScore + '&duration=' + duration
+      })
+
     }
   },
   getScore() {

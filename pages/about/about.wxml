@@ -1,0 +1,42 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">活动细则</view></cu-custom>
+<view class='margin bg-white padding radius shadow-lg'>
+    <view class='margin-top-sm'><text class="text-black text-bold">一、活动主题</text></view>
+      <view class='margin-top-sm'>学安法·知安全</view>
+    <view class='text-content margin-top-sm'>
+      <view class='margin-top-sm'><text class="text-black text-bold">二、活动时间</text></view>
+      <view class='margin-top-sm'>2021年10月18日00:00至2021年11月16日24:00，共30天</view>
+
+      <view class='margin-top-sm'><text class="text-black text-bold">三、活动方式</text></view>
+      <view class='margin-top-sm'>关注“红河州应急管理”公众号，进入“红河州安全生产知识有奖问答”线上答题。
+      </view>
+
+      <view class='margin-top-sm'><text class="text-black text-bold">四、活动对象</text></view>
+      <view class='margin-top-sm'>关注“红河州应急管理”微信公众号且手机号码归属地为红河州内的用户
+      </view>
+
+      <view class='margin-top-sm'><text class="text-black text-bold">五、答题内容</text></view>
+      <view class='margin-top-sm'>新《安全生产法》相关内容
+      </view>
+
+      <view class='margin-top-sm'><text class="text-black text-bold">六、活动规则</text></view>
+      <view class='margin-top-sm'>（一）本次活动共设题库80题，其中：《安全生产法》相关知识单选题40题，判断题40题。每轮答题数量为10题，由系统随机生成；每题10分，总分100分；答题时间不限。
+      </view>
+      <view class='margin-top-sm'>（二）答题之前必须填写姓名、手机号，手机号必须实名，并填写正确。
+      </view>
+      <view class='margin-top-sm'><text class="text-red text-bold">（三）本次线上有奖问答仅针对红河州辖区内手机用户，获奖话费只能充值到移动号码。如有两个手机号码，请使用移动号码参加问答；如联通、电信用户参与问答并获奖，可将获奖话费转赠亲朋好友的移动号码。</text>
+      </view>
+      <view class='margin-top-sm'>（四）每个用户名每天有1次答题机会，根据答题期间（30天）的累计总得分进行排名，总得分相同时按累计答题用时从短到长进行排名。
+      </view>
+
+      <view class='margin-top-sm'><text class="text-black text-bold">七、奖项设置</text></view>
+      <view class='margin-top-sm'>本次活动设一等奖50名，每名奖励100元，共5000元；二等奖100名，每名奖励50元，共计5000元；三等奖200名，每名奖励30元，共计6000元；四等奖700名，每名奖励20元，共计14000元（以上奖金将以等值话费充值卡的形式充值到获奖者手机中），以上奖金合计30000元。
+      </view>
+      <view class='margin-top-sm'>具体奖项名额根据报名参赛人数，在上限名额内按照不超过参赛人数三分之二确定。
+      </view>
+      <view class='margin-top-sm'>本活动最终解释权归红河州应急管理局所有。
+      </view>
+      <view class='margin-top-sm'>如有疑问，请联系公众号：红河州应急管理</view>
+    </view>
+  </view>
+
+  <official-account></official-account>

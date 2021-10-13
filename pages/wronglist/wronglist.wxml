@@ -1,0 +1,28 @@
+<cu-custom bgColor="bg-gradual-green" isCustom="{{true}}" isBack="{{false}}"><view slot="backText">返回</view><view slot="content">查看答案</view></cu-custom>
+<scroll-view>
+<view wx:for="{{questionList}}" class="margin-top" wx:key="index">
+  <view class="cu-card case">
+  <view class="cu-item shadow">
+    <view class='page__hd padding'>
+    <view class="page__title">
+      <text wx:if="{{item.checked==false}}" class="cuIcon-close xl text-red text-bold"></text>
+      {{index+1}}、{{item.question}}
+      {{item.type==1||item.type==3?"【单选】":"【多选】"}}
+      （{{item.scores}}分）
+    </view>
+  </view>
+  <!--内容-->
+  <view class="page__bd">
+    <radio-group class="radio-group">
+      <label class="radio my-choosebox" wx:for="{{item.option}}" wx:key="index">
+        <radio checked="{{item.selected}}"/>{{item.item}}
+      </label>
+    </radio-group>
+  </view>
+  <view class="padding text-black text-bold">正确答案: {{item['true']}}</view>
+  </view>
+
+</view>
+</view>
+<button type="default" bindtap="toIndex" hover-class="other-button-hover" class="wrong-btn padding"> 返回首页 </button>
+</scroll-view>

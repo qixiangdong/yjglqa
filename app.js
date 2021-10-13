@@ -3,6 +3,7 @@
 var jsonList = require('data/json.js'); 
 App({
   onLaunch() {
+    var that = this;
     if (wx.cloud) {
       wx.cloud.init({
         traceUser: false,
@@ -21,21 +22,52 @@ App({
 		}
       }
     })
+    let userInfo = wx.getStorageSync('userInfo');
+    let userProfile = wx.getStorageSync('userProfile');
+    let openid = wx.getStorageSync('openid')
+    if(userInfo){
+      this.globalData.userInfo = userInfo;
+    }
+    if(userProfile){
+      this.globalData.userProfile = userProfile;
+    }
+    if(openid){
+      this.globalData.openid = openid;
+    }else{
+      wx.cloud.callFunction({
+        name: 'getOpenId',
+        complete: res => {
+          console.log(res.result);
+          that.globalData.openid = res.result.openid
+          wx.setStorageSync('openid', res.result.openid);
+        }
+      })
+    }
 
-    var that = this;
-    if(this.globalData.user==null){
-      wx.cloud.database().collection('user').where({
-      }).get()
+    if(!userInfo || !userProfile || !openid){
+      wx.cloud.database().collection('user').get()
       .then(res => {
         console.log(res);
-        if(res.data&&res.data.length>0){
+        if(res.data&&res.data.length==1){
           let user = res.data[0]
             that.globalData.user = user
-            that.globalData.openid = user._openid
-            that.globalData.userInfo = {
+            let openid = user._openid
+            let userInfo = {
               nickName: user.nickName,
               avatarUrl: user.avatarUrl
             }
+            let userProfile = {
+              name: user.name,
+              phone: user.phone,
+              awardphone: user.awardphone
+            }
+            that.globalData.openid = openid
+            that.globalData.userInfo = userInfo
+            that.globalData.userProfile = userProfile
+            wx.setStorageSync('openid', openid);
+            wx.setStorageSync('userInfo', userInfo);
+            wx.setStorageSync('userProfile', userProfile);
+
         }
 
         console.log(that.globalData.user);
@@ -43,19 +75,18 @@ App({
         console.log(that.globalData.userInfo);
       })
       .catch(err => {
-        wx.showToast({
-          title: '网络错误',
-          icon: "error",
-          duration: 2000
-        })
+        console.log(err);
       })
-    
     }
+
   },
   globalData: {
     userInfo: null,
+    userProfile: null,
     openid: null,
     user: null,
-    questionList: jsonList.questionList  // 拿到答题数据
+    allQuestionList: jsonList.questionList,
+    answeredQuestionList: null,
+    answers: null,
   }
 })

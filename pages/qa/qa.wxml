@@ -1,5 +1,5 @@
 <cu-custom bgColor="bg-gradual-green"><view slot="content">答题</view></cu-custom>
-
+<scroll-view>
 <view wx:for="{{questionList}}" class="margin-top" wx:key="index">
   <view class="cu-card case">
   <view class="cu-item shadow">
@@ -32,3 +32,4 @@
   <button class="cu-btn bg-green lg" bindtap="submit">提交</button>
   <button class="cu-btn bg-red lg" bindtap="outTest">退出</button>
 </view>
+</scroll-view>

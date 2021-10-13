@@ -7,7 +7,9 @@
     "pages/login/login",
     "pages/history/history",
     "pages/qa/qa",
-    "pages/results/results"
+    "pages/results/results",
+    "pages/wronglist/wronglist",
+    "pages/about/about"
   ],
   "window":{
     "navigationBarBackgroundColor": "#39b54a",

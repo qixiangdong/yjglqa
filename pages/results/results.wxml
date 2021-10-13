@@ -16,6 +16,7 @@
   <!--查询错误-->
   <view class='page-footer'>
     <view class="wrong-btns">
+      <button type="default" bindtap="toWrongList" hover-class="other-button-hover" class="wrong-btn"> 查看答案 </button>
       <button type="default" bindtap="toIndex" hover-class="other-button-hover" class="wrong-btn"> 返回首页 </button>
     </view>
   </view>
